@@ -1,0 +1,22 @@
+.price {
+	width: 100%;
+	background-image: url(../../image/dog.jpg);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	padding-top: 30px;
+}
+.price .clear {
+	clear: both;
+}
+.price .float-left {
+	float: left;
+}
+.price .float-right {
+	float: right;
+	margin-top: -10px;
+	color: #160;
+}
+.price .thumbnail {
+	background-color: #698;
+	border-color: #9ba;
+}

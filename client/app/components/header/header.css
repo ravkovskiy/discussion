@@ -1,0 +1,131 @@
+.header_topline {
+    background-color: white;
+    min-height: 130px;
+    border-bottom: 1px solid #bbb;
+}
+
+.header .logo {
+    display: inline-block;
+    width: 200px;
+    height: 80px;
+    background-image: url("../../image/logo.png");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    position: relative;
+    top: -8px;
+    margin-top: -20px;
+}
+.header .logo img {
+     width: 200px;
+    height: 80px;
+}
+.header .registr {
+    display: inline-block;
+    float: right;
+    margin-right: 30px;
+    margin-top: 12px;
+    cursor: pointer;
+}
+.header .registr a {
+    padding-bottom: 7px;
+}
+.header .registr i {
+    font-size: 20px;
+    color: #999;
+}
+
+.header .soc_buttons {
+    float: right;
+    min-height: 48px;
+    background-color: #a33;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding-top: 9px;
+}
+.header .soc_buttons a {
+    text-decoration: none;
+}
+.header .soc_buttons a:first-child {
+    margin-left: 10px;
+}
+.header .soc_buttons a:nth-child(2) {
+    margin-left: 3px;
+}
+.header .soc_buttons a:nth-child(3) {
+    margin-left: 3px;
+}
+.header .soc_buttons a:last-child {
+    margin-right: 10px;
+}
+.header .soc_buttons i {
+    width: 30px;
+    height: 30px;
+    font-size: 22px;
+    background-color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 3px;
+}
+.header .soc_buttons a:last-child i {
+    background-color: white;;
+    color: #ef7f11;
+}
+.header .soc_buttons i:hover {
+    background-color: #338ab7;
+    color: #fff;
+}
+.header a.router-link-active {
+    border-bottom: 1px solid #faa;
+    background-color: white !important;
+}
+.header .soc_buttons a:last-child i:hover {
+    background-color: #ef7f11;;
+    color: white;
+}
+.header .clear_both {
+    clear: both;
+}
+.header .menu_buttons {
+    float: right;
+    font-size: 17px;
+    padding-top: 25px;
+    margin-right: 8px;
+}
+
+.header .menu_buttons li a {
+    padding: 12px;
+    margin-left: 8px;
+    color: #888;
+    padding-bottom: 7px;
+}
+.header .menu_buttons li a:hover {
+    background-color: white;
+}
+.header .menu_buttons a:hover {
+    border-bottom: 1px solid #faa;
+    color: #bbb;
+}
+
+.header .menu_buttons_select {
+    font-size: 20px;
+    border: 1px solid #ccc;
+    color: #666;
+}
+.header .menu_buttons_select:hover {
+    background-color: #f3f3f3;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .header .menu_buttons {
+        padding-top: 0px;
+    }
+    .header .menu_buttons li a {
+        padding: 6px 12px;
+    }
+}
+@media (max-width: 768px) {
+    .header .menu_buttons {
+        padding-top: 0;
+    }
+}

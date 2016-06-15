@@ -1,0 +1,23 @@
+.contacts {
+    margin-bottom: 20px;
+}
+.contacts .row {
+    margin-right: 0;
+}
+.contacts .row div[class^='col'] {
+    padding: 0;
+}
+.contacts .price_detail {
+    background-color: #344;;
+    height: 400px;
+    margin-right: 4%;
+}
+.contacts iframe{
+    width: 100%;
+    height: 400px;
+}
+@media (max-width: 768px) {
+    .contacts .price_detail {
+        margin-right: 0;
+    }
+}

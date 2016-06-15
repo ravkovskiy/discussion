@@ -33,7 +33,17 @@ var jsNPMDependencies = [
     'systemjs/dist/system.src.js',
     'rxjs/bundles/Rx.js',
     'angular2/bundles/angular2.dev.js',
-    'angular2/bundles/router.dev.js'
+    'angular2/bundles/router.dev.js',
+    'bootstrap/dist/css/bootstrap.css',
+    'bootstrap/dist/css/bootstrap.css.map',
+    'font-awesome/css/font-awesome.css',
+    'es6-shim/es6-shim.min.js',
+    'es6-shim/es6-shim.map',
+    'systemjs/dist/system-polyfills.js',
+    'systemjs/dist/system-polyfills.js.map',
+    'jquery/dist/jquery.js',
+    'bootstrap/dist/js/bootstrap.js'
+
 ] 
 
 gulp.task('build:index', function(){
@@ -49,8 +59,13 @@ gulp.task('build:index', function(){
     return [copyJsNPMDependencies, copyIndex];
 });
 
+
 gulp.task('build:app', function(){
     var tsProject = ts.createProject('client/tsconfig.json');
+
+    //Copy our .html,.js,.css etc. files from client in dist
+    gulp.src('client/**/*[.html,.js,.css,.jpeg,.jpg]').pipe(gulp.dest('dist'));
+    
     var tsResult = gulp.src('client/**/*.ts')
 		.pipe(sourcemaps.init())
         .pipe(ts(tsProject))

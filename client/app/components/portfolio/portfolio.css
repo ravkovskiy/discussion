@@ -1,0 +1,46 @@
+.portfolio .row {
+    padding: 15px 60px;
+    margin: 0;
+}
+.portfolio .modal-link {
+    cursor: pointer;
+}
+.portfolio .modal-content img {
+    width: 100%;
+}
+
+.portfolio .clear-both {
+    clear: both;
+}
+.portfolio .carousel-control {
+    cursor: pointer;
+    z-index: 2;
+}
+.portfolio .modal-content img {
+    cursor: pointer;
+}
+.portfolio .carousel-control .icon-prev, .portfolio .carousel-control .glyphicon-chevron-left {
+    top: 6%;
+    left: 26%;
+    font-size: 16px;
+}
+@media (min-width: 768px) {
+    .portfolio .modal-dialog {
+        width: 70%;
+        z-index: 2;
+    }
+}
+.portfolio .fa-times {
+    position: absolute;
+    top: 6%;
+    right: 26%;
+    margin-top: -10px;
+}
+.portfolio .background-modal-window {
+    background-color: #F2438C;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    opacity: 0.7;
+}

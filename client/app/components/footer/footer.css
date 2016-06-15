@@ -1,0 +1,19 @@
+.footer {
+	
+}
+.footer footer {
+    background-color: white;
+    color: #AA5;
+    padding: 12px 50px;
+    border-top: 1px solid #ddd;
+}
+contacts_component+footer_component footer {
+	
+}
+@media (min-width: 768px) {
+    contacts_component+footer_component footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+}
