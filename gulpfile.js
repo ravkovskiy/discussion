@@ -37,12 +37,14 @@ var jsNPMDependencies = [
     'bootstrap/dist/css/bootstrap.css',
     'bootstrap/dist/css/bootstrap.css.map',
     'font-awesome/css/font-awesome.css',
+    'font-awesome/fonts/fontawesome-webfont.woff2',
     'es6-shim/es6-shim.min.js',
     'es6-shim/es6-shim.map',
     'systemjs/dist/system-polyfills.js',
     'systemjs/dist/system-polyfills.js.map',
     'jquery/dist/jquery.js',
-    'bootstrap/dist/js/bootstrap.js'
+    'bootstrap/dist/js/bootstrap.js',
+    'bootstrap/dist/fonts/glyphicons-halflings-regular.woff2'
 
 ] 
 

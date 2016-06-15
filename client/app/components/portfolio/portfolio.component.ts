@@ -2,7 +2,7 @@ import {Component} from "angular2/core";
 import {PortfolioService} from "../portfolio/portfolio.service";
 @Component({
     selector: 'portfolio_component',
-    templateUrl: "./components/portfolio/portfolio.template.html",
+    templateUrl: "app/components/portfolio/portfolio.template.html",
 })
 export class PortfolioComponent{
     constructor(public portfolioService:PortfolioService) {
