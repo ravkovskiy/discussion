@@ -4,7 +4,7 @@
         
         <div *ngFor="#portfolioItem of portfolioService.portfolioList" class="col-lg-3 col-sm-6">
             <a (click)="onClickPortfolioItem(portfolioItem)" class="thumbnail modal-link" data-toggle="modal" data-target="#portfolioCarousel">
-            <img src="image/{{portfolioItem.image}}" alt="{{portfolioItem.alt}}">
+            <img src="app/image/{{portfolioItem.image}}" alt="{{portfolioItem.alt}}">
             </a>
         </div>
     
@@ -13,7 +13,7 @@
     <div class="modal" id="portfolioCarousel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                <img (mousedown)="onClickModalPortfolioItem($event, 'Next')" src="image/{{portfolioItem.image}}">  
+                <img (mousedown)="onClickModalPortfolioItem($event, 'Next')" src="app/image/{{portfolioItem.image}}">  
                 </div>
         </div>
         <!-- Controls -->
