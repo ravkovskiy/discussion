@@ -46,7 +46,8 @@ var jsNPMDependencies = [
     'bootstrap/dist/js/bootstrap.js',
     'bootstrap/dist/fonts/glyphicons-halflings-regular.woff2',
     'mongoose/index.js',
-    'mongoose/lib/index.js'
+    'mongoose/lib/index.js',
+    'nconf/usage.js'
 
 ] 
 
@@ -68,7 +69,7 @@ gulp.task('build:app', function(){
     var tsProject = ts.createProject('client/tsconfig.json');
 
     //Copy our .html,.js,.css etc. files from client in dist
-    gulp.src('client/**/*[.html,.js,.css,.jpeg,.jpg]').pipe(gulp.dest('dist'));
+    gulp.src('client/**/*[.html,.js,.css,.jpeg,.jpg,.json]').pipe(gulp.dest('dist'));
     
     var tsResult = gulp.src('client/**/*.ts')
 		.pipe(sourcemaps.init())
