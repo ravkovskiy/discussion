@@ -44,7 +44,9 @@ var jsNPMDependencies = [
     'systemjs/dist/system-polyfills.js.map',
     'jquery/dist/jquery.js',
     'bootstrap/dist/js/bootstrap.js',
-    'bootstrap/dist/fonts/glyphicons-halflings-regular.woff2'
+    'bootstrap/dist/fonts/glyphicons-halflings-regular.woff2',
+    'mongoose/index.js',
+    'mongoose/lib/index.js'
 
 ] 
 
