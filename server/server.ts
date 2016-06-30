@@ -17,7 +17,7 @@ var renderIndex = (req: express.Request, res: express.Response) => {
 
 app.use(require('./app/middleware/sendHttpError'));
 
-//app.get('/*', renderIndex);
+
 
 var User = require('./app/models/user').User;
 app.get('/users', function(req, res, next) {
@@ -41,6 +41,8 @@ app.get('/user/:id', function(req, res, next) {
         res.json(user);
     })
 });
+
+app.get('/*', renderIndex);
 
 app.use(function(err, req, res, next) {
     if(typeof err == 'number') {
