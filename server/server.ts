@@ -1,6 +1,11 @@
-import express = require('express');
-import path = require('path');
+var express = require('express');
+var path = require('path');
 var config = require('./app/config');
+var mongoose = require('./app/mongoose');
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var favicon = require('serve-favicon');
 var HttpError = require('./app/error').HttpError;
 var ObjectID = require('mongodb').ObjectID;
 var port: number = process.env.PORT || config.get('port');
@@ -14,6 +19,26 @@ app.use('/libs', express.static(path.resolve(__dirname, 'libs')));
 var renderIndex = (req: express.Request, res: express.Response) => {
     res.sendFile(path.resolve(__dirname, 'index.html'));
 }
+
+
+
+app.use(bodyParser());
+
+app.use(cookieParser());
+
+var MongoStore = require('connect-mongo')(session);
+
+app.use(session({
+    secret: config.get('session:secret'),
+    key: config.get('session:key'),
+    cookie: config.get('session:cookie'),
+    store: new MongoStore({mongooseConnection: mongoose.connection})
+}));
+
+app.use(function(req, res, next) {
+    req.session.numberOfVisits = req.session.numberOfVisits + 1 || 1;
+    res.send("Visits: " + req.session.numberOfVisits);
+})
 
 app.use(require('./app/middleware/sendHttpError'));
 
