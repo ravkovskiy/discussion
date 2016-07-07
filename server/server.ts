@@ -10,6 +10,7 @@ var HttpError = require('./app/error').HttpError;
 var ObjectID = require('mongodb').ObjectID;
 var port: number = process.env.PORT || config.get('port');
 var app = express();
+var async = require('async');
 
 app.use('/app', express.static(path.resolve(__dirname, 'app')));
 app.use('/libs', express.static(path.resolve(__dirname, 'libs')));
@@ -35,10 +36,7 @@ app.use(session({
     store: new MongoStore({mongooseConnection: mongoose.connection})
 }));
 
-app.use(function(req, res, next) {
-    req.session.numberOfVisits = req.session.numberOfVisits + 1 || 1;
-    res.send("Visits: " + req.session.numberOfVisits);
-})
+
 
 app.use(require('./app/middleware/sendHttpError'));
 
@@ -80,6 +78,35 @@ app.use(function(err, req, res, next) {
             res.sendHttpError(err);
     }
 });
+app.post('/main', function(req, res, next) {
+    var username = req.body.username;
+    var password = req.body.password;
+
+    async.waterfall([
+        function(callback) {
+            User.findOne({username: username}, callback);
+        },
+        function(user, callback) {
+            if(user) {
+                if(user.checkPassword(password)) {
+                    callback(null, user);
+                } else {
+                    next(new HttpError(403, 'Пароль неверен'));
+                }
+            } else {
+                var user = new User({username: username, password: password});
+                user.save(function(err) {
+                    if(err) return next(err);
+                    callback(null, user);
+                });
+            }
+        }
+    ], function(err, user) {
+        if(err) return next(err);
+        req.session.user = user._id;
+        res.send({});
+    });
+})
 var server = app.listen(port, function() {
     var host = server.address().address;
     var port = server.address().port;
