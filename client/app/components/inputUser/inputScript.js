@@ -1,4 +1,4 @@
-$(document.forms['login-form']).on('submit', function() {
+$(document).on('submit', 'form[name="login-form"]', function() {
         var form = $(this);
 
         $('.error', form).html('');
