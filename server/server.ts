@@ -66,7 +66,10 @@ app.get('/user/:id', function(req, res, next) {
     })
 });
 
-app.get('/*', renderIndex);
+
+app.get('/main',function(req, res, next) {
+    res.sendFile(path.resolve(__dirname, 'index.html'));
+});
 
 app.use(function(err, req, res, next) {
     if(typeof err == 'number') {
