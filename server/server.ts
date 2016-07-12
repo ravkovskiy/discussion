@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var favicon = require('serve-favicon');
 var HttpError = require('./app/error').HttpError;
+var AuthError = require('./app/error').AuthError;
 var ObjectID = require('mongodb').ObjectID;
 var port: number = process.env.PORT || config.get('port');
 var app = express();
@@ -82,6 +83,18 @@ app.post('/main', function(req, res, next) {
     var username = req.body.username;
     var password = req.body.password;
 
+    User.authorize(username, password, function(err, user) {
+        if(err) {
+            if(err instanceof AuthError) {
+                return next(new HttpError(403, err.message));
+            } else {
+                return next(err);
+            }
+        }
+
+        req.session.user = user._id;
+        res.send({});
+    });
     async.waterfall([
         function(callback) {
             User.findOne({username: username}, callback);
